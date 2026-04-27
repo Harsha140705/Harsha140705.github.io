@@ -1,318 +1,500 @@
+<!-- UPDATED VERSION -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsha Vardhan | Link Tree</title>
-    <meta name="description" content="Connect with Ullendula Harsha Vardhan - Full Stack Developer & AI/ML Enthusiast.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harsha Vardhan · Links</title>
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts: Outfit (display) + DM Sans (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500&display=swap"
+        rel="stylesheet" />
 
     <style>
-        :root {
-            --primary: #6366f1;
-            --secondary: #a855f7;
-            --accent: #ec4899;
-            --bg-dark: #0f172a;
-            --text-light: #f8fafc;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
-
-        * {
+        /* ══════════════════════════════════════
+       RESET + DESIGN TOKENS
+       ══════════════════════════════════════ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
         }
 
+        :root {
+            --glass-dark: rgba(36, 35, 35, 0.84);
+            --glass-darker: rgba(26, 25, 25, 0.90);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --divider: rgba(255, 255, 255, 0.11);
+            --text-white: #FFFFFF;
+            --text-muted: rgba(255, 255, 255, 0.58);
+            --pill-bg: rgba(255, 255, 255, 0.09);
+            --pill-border: rgba(255, 255, 255, 0.20);
+            --pill-hover: rgba(255, 255, 255, 0.18);
+            --circle-bg: rgba(255, 255, 255, 0.10);
+            --circle-hover: rgba(255, 255, 255, 0.20);
+            --blur: blur(24px) saturate(160%);
+            --radius-card: 18px;
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --shadow-card: 0 28px 72px rgba(0, 0, 0, 0.60);
+        }
+
+        /* ══════════════════════════════════════
+       BODY — autumn forest background
+       ══════════════════════════════════════ */
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            font-family: var(--font-body);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            overflow-x: hidden;
+            justify-content: center;
+            padding: 40px 16px;
+
+            /* Unsplash autumn forest */
+            background-image: url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            background-color: #2b1e14;
+        }
+
+        /* Darkening overlay over the photo */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 6, 4, 0.38);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ══════════════════════════════════════
+       PAGE WRAPPER
+       ══════════════════════════════════════ */
+        .page {
             position: relative;
-        }
-
-        /* Animated Background Blobs */
-        .blob {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            filter: blur(80px);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0.4;
-            animation: move 20s infinite alternate;
-        }
-
-        .blob-1 { top: -100px; left: -100px; animation-delay: 0s; }
-        .blob-2 { bottom: -100px; right: -100px; background: linear-gradient(135deg, var(--secondary), var(--accent)); animation-delay: -5s; }
-
-        @keyframes move {
-            from { transform: translate(0, 0) scale(1); }
-            to { transform: translate(100px, 100px) scale(1.2); }
-        }
-
-        .container {
-            width: 100%;
-            max-width: 480px;
-            padding: 2rem;
             z-index: 1;
+            width: 100%;
+            max-width: 960px;
         }
 
-        .profile-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        /* ══════════════════════════════════════
+       GLASS CARD — two-panel
+       ══════════════════════════════════════ */
+        .glass-card {
+            display: flex;
+            border-radius: var(--radius-card);
             border: 1px solid var(--glass-border);
-            border-radius: 2rem;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1s ease-out;
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            animation: cardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
         }
 
-        .profile-img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            margin-bottom: 1.5rem;
-            border: 3px solid var(--primary);
-            padding: 5px;
-            background: var(--bg-dark);
-            display: inline-block;
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-        }
-
-        .profile-img i {
-            font-size: 3.5rem;
-            line-height: 100px;
-            color: var(--primary);
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #fff, #cbd5e1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .tagline {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        .links-container {
+        /* ─── LEFT PANEL ─── */
+        .left-panel {
+            background: var(--glass-darker);
+            width: 320px;
+            flex-shrink: 0;
+            padding: 40px 30px 38px;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
         }
 
-        .link-btn {
+        .profile-name {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--text-white);
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .profile-bio {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.72;
+            margin-bottom: 36px;
+            flex: 1;
+        }
+
+        /* 3 circular icon buttons */
+        .action-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .circle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
+            background: var(--circle-bg);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 1rem 1.5rem;
-            border-radius: 1rem;
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .link-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px) scale(1.02);
-            border-color: var(--primary);
-            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.2);
-        }
-
-        .link-btn i {
-            font-size: 1.2rem;
-            width: 24px;
-            text-align: center;
-        }
-
-        .link-btn span {
-            flex-grow: 1;
-            text-align: center;
-            margin-left: -24px; /* Offset the icon width to center text */
-        }
-
-        .link-btn .arrow {
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
-        }
-
-        .link-btn:hover .arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Specific link colors on hover */
-        .link-github:hover { border-color: #333; }
-        .link-linkedin:hover { border-color: #0077b5; }
-        .link-portfolio:hover { border-color: #10b981; }
-        .link-leetcode:hover { border-color: #ffa116; }
-        .link-codechef:hover { border-color: #5b4638; }
-
-        .social-footer {
-            margin-top: 2.5rem;
-            display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
         }
 
-        .social-icon {
-            color: #94a3b8;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
+        .circle-btn:hover {
+            background: var(--circle-hover);
+            border-color: rgba(255, 255, 255, 0.38);
+            transform: translateY(-2px);
         }
 
-        .social-icon:hover {
-            color: var(--primary);
-            transform: scale(1.2);
+        /* ─── VERTICAL DIVIDER ─── */
+        .vdivider {
+            width: 1px;
+            background: var(--divider);
+            flex-shrink: 0;
         }
 
-        /* Tooltip */
-        [data-tooltip] {
-            position: relative;
+        /* ─── RIGHT PANEL ─── */
+        .right-panel {
+            flex: 1;
+            background: var(--glass-dark);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+            scrollbar-width: none;
         }
 
-        /* Footer Credits */
-        .footer-text {
-            margin-top: 2rem;
-            font-size: 0.75rem;
-            color: #475569;
-            text-align: center;
+        .right-panel::-webkit-scrollbar {
+            display: none;
         }
 
-        /* Responsive */
-        @media (max-width: 480px) {
-            .container {
-                padding: 1rem;
+        /* ─── SECTION ─── */
+        .r-section {
+            padding: 30px 34px;
+            animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        .r-section:nth-child(1) {
+            animation-delay: 0.18s;
+        }
+
+        .r-section:nth-child(3) {
+            animation-delay: 0.26s;
+        }
+
+        .r-section:nth-child(5) {
+            animation-delay: 0.34s;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
             }
-            .profile-card {
-                padding: 2rem 1rem;
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .r-section-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-white);
+            margin-bottom: 18px;
+            letter-spacing: -0.15px;
+        }
+
+        /* Horizontal section divider */
+        .hdivider {
+            height: 1px;
+            background: var(--divider);
+            margin: 0 34px;
+        }
+
+        /* ─── PILL BUTTONS ─── */
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--pill-border);
+            background: var(--pill-bg);
+            color: rgba(255, 255, 255, 0.88);
+            font-family: var(--font-body);
+            font-size: 0.84rem;
+            font-weight: 500;
+            text-decoration: none;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background 0.18s, border-color 0.18s, transform 0.18s, color 0.18s;
+        }
+
+        .pill:hover {
+            background: var(--pill-hover);
+            border-color: rgba(255, 255, 255, 0.42);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .pill i {
+            font-size: 0.78rem;
+            opacity: 0.8;
+        }
+
+        /* Smaller pill for project action links */
+        .pill-sm {
+            padding: 6px 13px;
+            font-size: 0.78rem;
+        }
+
+        /* Project block: label + pills */
+        .proj-block {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .proj-label {
+            font-family: var(--font-display);
+            font-size: 0.83rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.1px;
+        }
+
+        .proj-actions {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        /* ══════════════════════════════════════
+       MOBILE — stack panels vertically
+       ══════════════════════════════════════ */
+        @media (max-width: 680px) {
+            body {
+                padding: 20px 12px 44px;
+                align-items: flex-start;
+            }
+
+            .glass-card {
+                flex-direction: column;
+            }
+
+            .left-panel {
+                width: 100%;
+                padding: 30px 22px 26px;
+            }
+
+            .vdivider {
+                width: 100%;
+                height: 1px;
+            }
+
+            .right-panel {
+                max-height: none;
+                overflow-y: visible;
+            }
+
+            .r-section {
+                padding: 24px 20px;
+            }
+
+            .hdivider {
+                margin: 0 20px;
+            }
+
+            .profile-name {
+                font-size: 1.65rem;
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
+    <main class="page">
+        <div class="glass-card">
 
-    <div class="container">
-        <div class="profile-card">
-            <div class="profile-img">
-                <i class="fas fa-user-astronaut"></i>
-            </div>
-            <h1>Harsha Vardhan</h1>
-            <p class="tagline">Full Stack Developer | AI & ML Enthusiast</p>
+            <!-- ═══════════════════════
+           LEFT — Profile
+           ═══════════════════════ -->
+            <div class="left-panel">
 
-            <div class="links-container">
-                <a href="https://portfolio-harshavardhan1234.vercel.app/#contact" target="_blank" class="link-btn link-portfolio">
-                    <i class="fas fa-globe"></i>
-                    <span>Personal Portfolio</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
+                <h1 class="profile-name">Ullendula<br>Harsha Vardhan</h1>
 
-                <a href="https://github.com/Harsha140705" target="_blank" class="link-btn link-github">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub Profile</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
+                <p class="profile-bio">
+                    Computer Science undergraduate at Vidya Jyothi Institute of Technology,
+                    specializing in Full-Stack Web Development and AI/ML.
+                    Experienced in building multi-tenant SaaS platforms, real-time
+                    systems, and AI-powered applications. Finalist in SIH 2024.
+                </p>
 
-                <a href="https://www.linkedin.com/in/harshaullendula" target="_blank" class="link-btn link-linkedin">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn Connection</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
+                <!-- 3 circular buttons — Portfolio · GitHub · Email -->
+                <div class="action-row">
+                    <a class="circle-btn" href="https://portfolio-harshavardhan1234.vercel.app/#contact" target="_blank" rel="noopener"
+                        title="Portfolio"><i class="fas fa-globe"></i></a>
 
-                <a href="https://leetcode.com/harshaullendula14" target="_blank" class="link-btn link-leetcode">
-                    <i class="fas fa-code"></i>
-                    <span>LeetCode</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
+                    <a class="circle-btn" href="https://github.com/Harsha140705" target="_blank" rel="noopener"
+                        title="GitHub"><i class="fab fa-github"></i></a>
 
-                <a href="https://www.hackerrank.com/harshaullendula1" target="_blank" class="link-btn">
-                    <i class="fab fa-hackerrank"></i>
-                    <span>HackerRank</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
+                    <a class="circle-btn" href="mailto:ullendulaharshavardhan@gmail.com" title="Email"><i
+                            class="fas fa-envelope"></i></a>
+                </div>
 
-                <a href="https://www.codechef.com/users/aware_flash39" target="_blank" class="link-btn link-codechef">
-                    <i class="fas fa-terminal"></i>
-                    <span>CodeChef</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
-
-                <a href="mailto:ullendulaharshavardhan@gmail.com" class="link-btn">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email Me</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
-
-                <a href="https://wa.me/919346433259" target="_blank" class="link-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
             </div>
 
-            <div class="social-footer">
-                <a href="https://github.com/Harsha140705" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/harshaullendula" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:ullendulaharshavardhan@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            <!-- Vertical divider -->
+            <div class="vdivider"></div>
+
+            <!-- ═══════════════════════
+           RIGHT — Links
+           ═══════════════════════ -->
+            <div class="right-panel">
+
+                <!-- SECTION: Projects -->
+                <div class="r-section">
+                    <h2 class="r-section-title">Projects</h2>
+
+                    <div style="display:flex;flex-direction:column;gap:14px;">
+
+                        <div class="proj-block">
+                            <span class="proj-label">SaaS Support Ticket System — Enterprise Platform</span>
+                            <div class="proj-actions">
+                                <a href="https://github.com/Harsha140705/saas-support" target="_blank" rel="noopener"
+                                    class="pill pill-sm">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="proj-block">
+                            <span class="proj-label">GrievanceHub — AI Grievance Platform</span>
+                            <div class="proj-actions">
+                                <a href="https://github.com/Harsha140705/grievancehub" target="_blank" rel="noopener"
+                                    class="pill pill-sm">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="proj-block">
+                            <span class="proj-label">EduPapers — Question Papers Platform</span>
+                            <div class="proj-actions">
+                                <a href="https://github.com/Harsha140705/edupapers" target="_blank" rel="noopener"
+                                    class="pill pill-sm">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="proj-block">
+                            <span class="proj-label">Face Clustering — AI Smart Album</span>
+                            <div class="proj-actions">
+                                <a href="https://github.com/Harsha140705/face-clustering" target="_blank" rel="noopener"
+                                    class="pill pill-sm">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hdivider"></div>
+
+                <!-- SECTION: Certifications -->
+                <div class="r-section">
+                    <h2 class="r-section-title">Certifications</h2>
+
+                    <div class="pills">
+                        <a href="https://drive.google.com/file/d/1qLSz1vBDiqVURsZWv19S2zFfwoHRj4m8/view?usp=drive_link"
+                            target="_blank" rel="noopener" class="pill">
+                            <i class="fab fa-java"></i> OOPs through Java
+                        </a>
+                        <a href="https://drive.google.com/file/d/18NRBdlFvx_Ccu-Ps4gU-idxFB0DgMtSX/view?usp=drive_link"
+                            target="_blank" rel="noopener" class="pill">
+                            <i class="fas fa-database"></i> DBMS
+                        </a>
+                        <a href="https://drive.google.com/file/d/15atKBhR6kVMTGWLtjh6Iiws1IEAO9kdG/view?usp=drive_link"
+                            target="_blank" rel="noopener" class="pill">
+                            <i class="fas fa-robot"></i> AIML Virtual Internship
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hdivider"></div>
+
+                <!-- SECTION: Coding Profiles & Links -->
+                <div class="r-section">
+                    <h2 class="r-section-title">Coding Profiles &amp; Links</h2>
+
+                    <div class="pills">
+                        <a href="https://leetcode.com/harshaullendula14" target="_blank" rel="noopener" class="pill">
+                            <i class="fas fa-code"></i> LeetCode
+                        </a>
+                        <a href="https://www.codechef.com/users/aware_flash39" target="_blank" rel="noopener"
+                            class="pill">
+                            <i class="fas fa-utensils"></i> CodeChef
+                        </a>
+                        <a href="https://www.hackerrank.com/harshaullendula1" target="_blank" rel="noopener"
+                            class="pill">
+                            <i class="fab fa-hackerrank"></i> HackerRank
+                        </a>
+                        <a href="https://github.com/Harsha140705" target="_blank" rel="noopener" class="pill">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/harshaullendula" target="_blank"
+                            rel="noopener" class="pill">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://portfolio-harshavardhan1234.vercel.app/#contact" target="_blank" rel="noopener" class="pill">
+                            <i class="fas fa-globe"></i> Portfolio
+                        </a>
+                        <a href="mailto:ullendulaharshavardhan@gmail.com" class="pill">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                    </div>
+                </div>
+
             </div>
-            
-            <p class="footer-text">© 2026 Ullendula Harsha Vardhan</p>
+            <!-- /right-panel -->
+
         </div>
-    </div>
-
-    <script>
-        // Subtle hover interaction for the card
-        const card = document.querySelector('.profile-card');
-        document.addEventListener('mousemove', (e) => {
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
-
-        document.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-            card.style.transition = 'all 0.5s ease';
-        });
-
-        document.addEventListener('mouseenter', () => {
-            card.style.transition = 'none';
-        });
-    </script>
+        <!-- /glass-card -->
+    </main>
 </body>
+
 </html>
