@@ -1,508 +1,496 @@
-<!-- UPDATED VERSION -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Harsha Vardhan · Links</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>harshaullendula · Links</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Google Fonts: Outfit (display) + DM Sans (body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500&display=swap"
-        rel="stylesheet" />
+    :root {
+      --bg: #0f0f0f;
+      --card-bg: #1a1a1a;
+      --card-border: rgba(255,255,255,0.08);
+      --card-hover: #242424;
+      --accent: #c8f135;
+      --accent-dim: rgba(200,241,53,0.12);
+      --text: #f5f5f5;
+      --muted: rgba(255,255,255,0.45);
+      --section-label: rgba(255,255,255,0.30);
+      --divider: rgba(255,255,255,0.07);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
 
-    <style>
-        /* ══════════════════════════════════════
-       RESET + DESIGN TOKENS
-       ══════════════════════════════════════ */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    html { scroll-behavior: smooth; }
 
-        :root {
-            --glass-dark: rgba(36, 35, 35, 0.84);
-            --glass-darker: rgba(26, 25, 25, 0.90);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --divider: rgba(255, 255, 255, 0.11);
-            --text-white: #FFFFFF;
-            --text-muted: rgba(255, 255, 255, 0.58);
-            --pill-bg: rgba(255, 255, 255, 0.09);
-            --pill-border: rgba(255, 255, 255, 0.20);
-            --pill-hover: rgba(255, 255, 255, 0.18);
-            --circle-bg: rgba(255, 255, 255, 0.10);
-            --circle-hover: rgba(255, 255, 255, 0.20);
-            --blur: blur(24px) saturate(160%);
-            --radius-card: 18px;
-            --font-display: 'Outfit', sans-serif;
-            --font-body: 'DM Sans', sans-serif;
-            --shadow-card: 0 28px 72px rgba(0, 0, 0, 0.60);
-        }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 0 0 60px;
+      color: var(--text);
+    }
 
-        /* ══════════════════════════════════════
-       BODY — autumn forest background
-       ══════════════════════════════════════ */
-        body {
-            font-family: var(--font-body);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 16px;
+    /* subtle noise grain overlay */
+    body::after {
+      content:'';
+      position:fixed;
+      inset:0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events:none;
+      z-index:99;
+    }
 
-            /* Unsplash autumn forest */
-            background-image: url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center top;
-            background-attachment: fixed;
-            background-color: #2b1e14;
-        }
+    .container {
+      width: 100%;
+      max-width: 480px;
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        /* Darkening overlay over the photo */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: rgba(8, 6, 4, 0.38);
-            pointer-events: none;
-            z-index: 0;
-        }
+    /* ── PROFILE HEADER ── */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 0 32px;
+      animation: fadeDown 0.5s ease both;
+    }
 
-        /* ══════════════════════════════════════
-       PAGE WRAPPER
-       ══════════════════════════════════════ */
-        .page {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            max-width: 960px;
-        }
+    .avatar-ring {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--accent) 0%, rgba(200,241,53,0.3) 100%);
+      margin-bottom: 14px;
+      position: relative;
+    }
 
-        /* ══════════════════════════════════════
-       GLASS CARD — two-panel
-       ══════════════════════════════════════ */
-        .glass-card {
-            display: flex;
-            border-radius: var(--radius-card);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-card);
-            overflow: hidden;
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            animation: cardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-        }
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #222;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      color: rgba(255,255,255,0.3);
+    }
 
-        @keyframes cardIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.97);
-            }
+    .avatar-inner img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
 
-            to {
-                opacity: 1;
-                transform: none;
-            }
-        }
+    .profile-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.2px;
+      margin-bottom: 4px;
+    }
 
-        /* ─── LEFT PANEL ─── */
-        .left-panel {
-            background: var(--glass-darker);
-            width: 320px;
-            flex-shrink: 0;
-            padding: 40px 30px 38px;
-            display: flex;
-            flex-direction: column;
-        }
+    .profile-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+    }
 
-        .profile-name {
-            font-family: var(--font-display);
-            font-size: 1.9rem;
-            font-weight: 600;
-            color: var(--text-white);
-            line-height: 1.1;
-            margin-bottom: 16px;
-            letter-spacing: -0.3px;
-        }
+    /* ── SOCIAL ROW ── */
+    .social-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
 
-        .profile-bio {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            line-height: 1.72;
-            margin-bottom: 36px;
-            flex: 1;
-        }
+    .social-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+    }
 
-        /* 3 circular icon buttons */
-        .action-row {
-            display: flex;
-            gap: 12px;
-        }
+    .social-btn:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
 
-        .circle-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid var(--glass-border);
-            background: var(--circle-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: background 0.2s, border-color 0.2s, transform 0.2s;
-        }
+    /* ── SECTIONS ── */
+    .sections {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
 
-        .circle-btn:hover {
-            background: var(--circle-hover);
-            border-color: rgba(255, 255, 255, 0.38);
-            transform: translateY(-2px);
-        }
+    .section {
+      width: 100%;
+      animation: fadeUp 0.5s ease both;
+    }
 
-        /* ─── VERTICAL DIVIDER ─── */
-        .vdivider {
-            width: 1px;
-            background: var(--divider);
-            flex-shrink: 0;
-        }
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
 
-        /* ─── RIGHT PANEL ─── */
-        .right-panel {
-            flex: 1;
-            background: var(--glass-dark);
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-            max-height: calc(100vh - 80px);
-            scrollbar-width: none;
-        }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      padding: 0 2px;
+    }
 
-        .right-panel::-webkit-scrollbar {
-            display: none;
-        }
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--section-label);
+    }
 
-        /* ─── SECTION ─── */
-        .r-section {
-            padding: 30px 34px;
-            animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-        }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
 
-        .r-section:nth-child(1) {
-            animation-delay: 0.18s;
-        }
+    .section-icon {
+      font-size: 0.7rem;
+      color: var(--accent);
+      opacity: 0.7;
+    }
 
-        .r-section:nth-child(3) {
-            animation-delay: 0.26s;
-        }
+    /* ── LINK CARDS (Linktree style) ── */
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-        .r-section:nth-child(5) {
-            animation-delay: 0.34s;
-        }
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text);
+      text-decoration: none;
+      transition: background 0.18s, border-color 0.18s, transform 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
+    .link-card::before {
+      content:'';
+      position:absolute;
+      inset:0;
+      background: linear-gradient(90deg, var(--accent-dim) 0%, transparent 100%);
+      opacity:0;
+      transition: opacity 0.2s;
+    }
 
-            to {
-                opacity: 1;
-                transform: none;
-            }
-        }
+    .link-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(200,241,53,0.25);
+      transform: translateY(-1px);
+    }
 
-        .r-section-title {
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: var(--text-white);
-            margin-bottom: 18px;
-            letter-spacing: -0.15px;
-        }
+    .link-card:hover::before { opacity:1; }
 
-        /* Horizontal section divider */
-        .hdivider {
-            height: 1px;
-            background: var(--divider);
-            margin: 0 34px;
-        }
+    .link-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      position: relative;
+      z-index:1;
+    }
 
-        /* ─── PILL BUTTONS ─── */
-        .pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
-        }
+    .link-text {
+      flex: 1;
+      position: relative; z-index:1;
+    }
 
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 8px 16px;
-            border-radius: 999px;
-            border: 1px solid var(--pill-border);
-            background: var(--pill-bg);
-            color: rgba(255, 255, 255, 0.88);
-            font-family: var(--font-body);
-            font-size: 0.84rem;
-            font-weight: 500;
-            text-decoration: none;
-            white-space: nowrap;
-            cursor: pointer;
-            transition: background 0.18s, border-color 0.18s, transform 0.18s, color 0.18s;
-        }
+    .link-title {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
 
-        .pill:hover {
-            background: var(--pill-hover);
-            border-color: rgba(255, 255, 255, 0.42);
-            color: #fff;
-            transform: translateY(-1px);
-        }
+    .link-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
 
-        .pill i {
-            font-size: 0.78rem;
-            opacity: 0.8;
-        }
+    .link-arrow {
+      font-size: 0.7rem;
+      color: var(--muted);
+      position: relative; z-index:1;
+      transition: color 0.2s, transform 0.2s;
+    }
 
-        /* Smaller pill for project action links */
-        .pill-sm {
-            padding: 6px 13px;
-            font-size: 0.78rem;
-        }
+    .link-card:hover .link-arrow {
+      color: var(--accent);
+      transform: translateX(2px);
+    }
 
-        /* Project block: label + pills */
-        .proj-block {
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-        }
+    /* cert badge colour dots */
+    .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-left: auto;
+      position: relative; z-index:1;
+    }
 
-        .proj-label {
-            font-family: var(--font-display);
-            font-size: 0.83rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            letter-spacing: 0.1px;
-        }
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 40px;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.2);
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
 
-        .proj-actions {
-            display: flex;
-            gap: 7px;
-            flex-wrap: wrap;
-        }
-
-        /* ══════════════════════════════════════
-       MOBILE — stack panels vertically
-       ══════════════════════════════════════ */
-        @media (max-width: 680px) {
-            body {
-                padding: 20px 12px 44px;
-                align-items: flex-start;
-            }
-
-            .glass-card {
-                flex-direction: column;
-            }
-
-            .left-panel {
-                width: 100%;
-                padding: 30px 22px 26px;
-            }
-
-            .vdivider {
-                width: 100%;
-                height: 1px;
-            }
-
-            .right-panel {
-                max-height: none;
-                overflow-y: visible;
-            }
-
-            .r-section {
-                padding: 24px 20px;
-            }
-
-            .hdivider {
-                margin: 0 20px;
-            }
-
-            .profile-name {
-                font-size: 1.65rem;
-            }
-        }
-    </style>
+    /* animations */
+    @keyframes fadeDown {
+      from { opacity:0; transform:translateY(-16px); }
+      to   { opacity:1; transform:none; }
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(16px); }
+      to   { opacity:1; transform:none; }
+    }
+  </style>
 </head>
-
 <body>
-    <main class="page">
-        <div class="glass-card">
+<div class="container">
 
-            <!-- ═══════════════════════
-           LEFT — Profile
-           ═══════════════════════ -->
-            <div class="left-panel">
+  <!-- ══ PROFILE ══ -->
+  <div class="profile">
+    <div class="avatar-ring">
+      <div class="avatar-inner">
+        <!-- Replace with your photo: <img src="YOUR_PHOTO_URL" alt="Harsha"> -->
+        <i class="fas fa-user"></i>
+      </div>
+    </div>
+    <div class="profile-name">Harsha Vardhan</div>
+    <div class="profile-sub">@harshaullendula · CSE (AI&amp;ML) · VJIT</div>
+    <div class="social-row">
+      <a class="social-btn" href="https://github.com/Harsha140705" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a class="social-btn" href="https://www.linkedin.com/in/harsha-vardhan-ullendula/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a class="social-btn" href="https://portfolio-harshavardhan1234.vercel.app/#contact" target="_blank" title="Portfolio"><i class="fas fa-globe"></i></a>
+      <a class="social-btn" href="mailto:ullendulaharshavardhan@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
 
-                <h1 class="profile-name">Ullendula<br>Harsha Vardhan</h1>
+  <div class="sections">
 
-                <p class="profile-bio">
-                    Computer Science undergraduate at Vidya Jyothi Institute of Technology,
-                    specializing in Full-Stack Web Development and AI/ML.
-                    Experienced in building multi-tenant SaaS platforms, real-time
-                    systems, and AI-powered applications. Finalist in SIH 2024.
-                </p>
+    <!-- ══ SECTION 1: PROJECTS ══ -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon"><i class="fas fa-circle-dot"></i></span>
+        <span class="section-label">Projects</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="link-list">
 
-                <!-- 3 circular buttons — Portfolio · GitHub · Email -->
-                <div class="action-row">
-                    <a class="circle-btn" href="https://portfolio-harshavardhan1234.vercel.app/#contact" target="_blank" rel="noopener"
-                        title="Portfolio"><i class="fas fa-globe"></i></a>
+        <a class="link-card" href="https://github.com/Harsha140705/saas-support" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fas fa-ticket"></i></div>
+          <div class="link-text">
+            <div class="link-title">SaaS Support Ticket System</div>
+            <div class="link-sub">Multi-tenant enterprise platform · React · Node · PostgreSQL</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                    <a class="circle-btn" href="https://github.com/Harsha140705" target="_blank" rel="noopener"
-                        title="GitHub"><i class="fab fa-github"></i></a>
+        <a class="link-card" href="https://github.com/Harsha140705/grievancehub" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fas fa-brain"></i></div>
+          <div class="link-text">
+            <div class="link-title">GrievanceHub</div>
+            <div class="link-sub">AI-powered grievance management platform</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                    <a class="circle-btn" href="mailto:ullendulaharshavardhan@gmail.com" title="Email"><i
-                            class="fas fa-envelope"></i></a>
-                </div>
+        <a class="link-card" href="https://github.com/Harsha140705/edupapers" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="link-text">
+            <div class="link-title">EduPapers</div>
+            <div class="link-sub">Question papers platform for students</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-            </div>
+        <a class="link-card" href="https://github.com/Harsha140705/smart-album" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fas fa-images"></i></div>
+          <div class="link-text">
+            <div class="link-title">Face Clustering Smart Album</div>
+            <div class="link-sub">AI photo organizer · DeepFace · OpenCV</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-            <!-- Vertical divider -->
-            <div class="vdivider"></div>
+      </div>
+    </div>
 
-            <!-- ═══════════════════════
-           RIGHT — Links
-           ═══════════════════════ -->
-            <div class="right-panel">
+    <!-- ══ SECTION 2: CERTIFICATIONS ══ -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon"><i class="fas fa-circle-dot"></i></span>
+        <span class="section-label">Certifications</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="link-list">
 
-                <!-- SECTION: Projects -->
-                <div class="r-section">
-                    <h2 class="r-section-title">Projects</h2>
+        <a class="link-card" href="https://drive.google.com/file/d/1aK90Hj6_R_QLpBmifLvetiuwCdyV5P-H/view?usp=sharing" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fab fa-python"></i></div>
+          <div class="link-text">
+            <div class="link-title">Python Programming</div>
+            <div class="link-sub">CodeTantra · Certificate</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                    <div style="display:flex;flex-direction:column;gap:14px;">
+        <a class="link-card" href="https://drive.google.com/file/d/1KfKbtIjq6X4AgzopwMjPJLjZLqKOx_Ui/view?usp=sharing" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fab fa-node-js"></i></div>
+          <div class="link-text">
+            <div class="link-title">Node.js, Express &amp; MongoDB</div>
+            <div class="link-sub">Full-stack backend · Certificate</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                        <div class="proj-block">
-                            <span class="proj-label">SaaS Support Ticket System — Enterprise Platform</span>
-                            <div class="proj-actions">
-                                <a href="https://github.com/Harsha140705/saas-support" target="_blank" rel="noopener"
-                                    class="pill pill-sm">
-                                    <i class="fab fa-github"></i> GitHub
-                                </a>
-                            </div>
-                        </div>
+        <a class="link-card" href="https://drive.google.com/file/d/1qLSz1vBDiqVURsZWv19S2zFfwoHRj4m8/view?usp=drive_link" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fab fa-java"></i></div>
+          <div class="link-text">
+            <div class="link-title">OOPs through Java</div>
+            <div class="link-sub">Object-Oriented Programming · Certificate</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                        <div class="proj-block">
-                            <span class="proj-label">GrievanceHub — AI Grievance Platform</span>
-                            <div class="proj-actions">
-                                <a href="https://github.com/Harsha140705/grievancehub" target="_blank" rel="noopener"
-                                    class="pill pill-sm">
-                                    <i class="fab fa-github"></i> GitHub
-                                </a>
-                            </div>
-                        </div>
+        <a class="link-card" href="https://drive.google.com/file/d/18NRBdlFvx_Ccu-Ps4gU-idxFB0DgMtSX/view?usp=drive_link" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fas fa-database"></i></div>
+          <div class="link-text">
+            <div class="link-title">DBMS</div>
+            <div class="link-sub">Database Management Systems · Certificate</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                        <div class="proj-block">
-                            <span class="proj-label">EduPapers — Question Papers Platform</span>
-                            <div class="proj-actions">
-                                <a href="https://github.com/Harsha140705/edupapers" target="_blank" rel="noopener"
-                                    class="pill pill-sm">
-                                    <i class="fab fa-github"></i> GitHub
-                                </a>
-                            </div>
-                        </div>
+        <a class="link-card" href="https://drive.google.com/file/d/15atKBhR6kVMTGWLtjh6Iiws1IEAO9kdG/view?usp=drive_link" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fas fa-robot"></i></div>
+          <div class="link-text">
+            <div class="link-title">AIML Virtual Internship</div>
+            <div class="link-sub">Artificial Intelligence &amp; Machine Learning</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                        <div class="proj-block">
-                            <span class="proj-label">Face Clustering — AI Smart Album</span>
-                            <div class="proj-actions">
-                                <a href="https://github.com/Harsha140705/smart-album" target="_blank" rel="noopener"
-                                    class="pill pill-sm">
-                                    <i class="fab fa-github"></i> GitHub
-                                </a>
-                            </div>
-                        </div>
+      </div>
+    </div>
 
-                    </div>
-                </div>
+    <!-- ══ SECTION 3: CODING PROFILES ══ -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon"><i class="fas fa-circle-dot"></i></span>
+        <span class="section-label">Coding Profiles</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="link-list">
 
-                <div class="hdivider"></div>
+        <a class="link-card" href="https://leetcode.com/u/harshaullendula143/" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fas fa-code"></i></div>
+          <div class="link-text">
+            <div class="link-title">LeetCode</div>
+            <div class="link-sub">harshaullendula143</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                <!-- SECTION: Certifications -->
-                <div class="r-section">
-                    <h2 class="r-section-title">Certifications</h2>
+        <a class="link-card" href="https://www.codechef.com/users/horse_91" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fas fa-utensils"></i></div>
+          <div class="link-text">
+            <div class="link-title">CodeChef</div>
+            <div class="link-sub">horse_91</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                    <div class="pills">
-                        <a href="https://drive.google.com/file/d/1aK90Hj6_R_QLpBmifLvetiuwCdyV5P-H/view?usp=sharing"
-                            target="_blank" rel="noopener" class="pill">
-                            <i class="fab fa-python"></i> Python — CodeTantra
-                        </a>
-                        <a href="https://drive.google.com/file/d/1KfKbtIjq6X4AgzopwMjPJLjZLqKOx_Ui/view?usp=sharing"
-                            target="_blank" rel="noopener" class="pill">
-                            <i class="fab fa-node-js"></i> Node, Express &amp; MongoDB
-                        </a>
-                        <a href="https://drive.google.com/file/d/1qLSz1vBDiqVURsZWv19S2zFfwoHRj4m8/view?usp=drive_link"
-                            target="_blank" rel="noopener" class="pill">
-                            <i class="fab fa-java"></i> OOPs through Java
-                        </a>
-                        <a href="https://drive.google.com/file/d/18NRBdlFvx_Ccu-Ps4gU-idxFB0DgMtSX/view?usp=drive_link"
-                            target="_blank" rel="noopener" class="pill">
-                            <i class="fas fa-database"></i> DBMS
-                        </a>
-                        <a href="https://drive.google.com/file/d/15atKBhR6kVMTGWLtjh6Iiws1IEAO9kdG/view?usp=drive_link"
-                            target="_blank" rel="noopener" class="pill">
-                            <i class="fas fa-robot"></i> AIML Virtual Internship
-                        </a>
-                    </div>
-                </div>
+        <a class="link-card" href="https://www.hackerrank.com/harshaullendula1" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fab fa-hackerrank"></i></div>
+          <div class="link-text">
+            <div class="link-title">HackerRank</div>
+            <div class="link-sub">harshaullendula1</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                <div class="hdivider"></div>
+        <a class="link-card" href="https://github.com/Harsha140705" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fab fa-github"></i></div>
+          <div class="link-text">
+            <div class="link-title">GitHub</div>
+            <div class="link-sub">Harsha140705</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                <!-- SECTION: Coding Profiles & Links -->
-                <div class="r-section">
-                    <h2 class="r-section-title">Coding Profiles &amp; Links</h2>
+        <a class="link-card" href="https://www.linkedin.com/in/harsha-vardhan-ullendula/" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fab fa-linkedin-in"></i></div>
+          <div class="link-text">
+            <div class="link-title">LinkedIn</div>
+            <div class="link-sub">harsha-vardhan-ullendula</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-                    <div class="pills">
-                        <a href="https://leetcode.com/u/harshaullendula143/" target="_blank" rel="noopener" class="pill">
-                            <i class="fas fa-code"></i> LeetCode
-                        </a>
-                        <a href="https://www.codechef.com/users/horse_91" target="_blank" rel="noopener"
-                            class="pill">
-                            <i class="fas fa-utensils"></i> CodeChef
-                        </a>
-                        <a href="https://www.hackerrank.com/harshaullendula1" target="_blank" rel="noopener"
-                            class="pill">
-                            <i class="fab fa-hackerrank"></i> HackerRank
-                        </a>
-                        <a href="https://github.com/Harsha140705" target="_blank" rel="noopener" class="pill">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="https://www.linkedin.com/in/harsha-vardhan-ullendula/" target="_blank"
-                            rel="noopener" class="pill">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
-                        <a href="https://portfolio-harshavardhan1234.vercel.app/#contact" target="_blank" rel="noopener" class="pill">
-                            <i class="fas fa-globe"></i> Portfolio
-                        </a>
-                        <a href="mailto:ullendulaharshavardhan@gmail.com" class="pill">
-                            <i class="fas fa-envelope"></i> Email
-                        </a>
-                    </div>
-                </div>
+        <a class="link-card" href="https://portfolio-harshavardhan1234.vercel.app/#contact" target="_blank" rel="noopener">
+          <div class="link-icon"><i class="fas fa-globe"></i></div>
+          <div class="link-text">
+            <div class="link-title">Portfolio</div>
+            <div class="link-sub">portfolio-harshavardhan1234.vercel.app</div>
+          </div>
+          <i class="fas fa-chevron-right link-arrow"></i>
+        </a>
 
-            </div>
-            <!-- /right-panel -->
+      </div>
+    </div>
 
-        </div>
-        <!-- /glass-card -->
-    </main>
+  </div><!-- /sections -->
+
+  <div class="footer">harshaullendula · built with ♥</div>
+
+</div><!-- /container -->
 </body>
-
 </html>
