@@ -6,14 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Harsha Vardhan • Brand &amp; Links</title>
 
+  <!-- SEO Meta Tags -->
   <meta name="description"
     content="Personal landing page and professional links of Harsha Vardhan - Software Developer &amp; AI Engineer specializing in Full-Stack development, AI/ML, and IoT systems." />
   <meta name="keywords"
     content="Harsha Vardhan, Software Developer, AI Engineer, Linktree, Portfolio, Full Stack, React, FastAPI, Node.js" />
   <meta name="author" content="Harsha Vardhan" />
 
+  <!-- FontAwesome for Premium Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     crossorigin="anonymous" />
+
+  <!-- Google Fonts for Premium Typography Pairing -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -21,9 +25,17 @@
     rel="stylesheet" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ── DESIGN SYSTEM & RESET ── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
+      /* Palette */
       --bg: #f8fafc;
       --card-bg: rgba(255, 255, 255, 0.75);
       --card-border: rgba(15, 23, 42, 0.06);
@@ -40,11 +52,15 @@
       --shadow-sm: 0 2px 8px -1px rgba(15, 23, 42, 0.03), 0 1px 3px -1px rgba(15, 23, 42, 0.02);
       --shadow-md: 0 8px 30px -4px rgba(15, 23, 42, 0.04), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
       --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.06), 0 10px 20px -5px rgba(15, 23, 42, 0.04);
+
+      /* Typography */
       --font-display: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Inter', sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: var(--font-body);
@@ -59,373 +75,756 @@
       line-height: 1.5;
     }
 
+    /* ── ANIMATED GLASS BACKGROUND BLOBS ── */
     .bg-blobs {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: -2; pointer-events: none; overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
     }
 
     .blob {
-      position: absolute; border-radius: 50%;
-      filter: blur(140px); opacity: 0.45;
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.45;
       animation: pulse 12s infinite alternate ease-in-out;
     }
 
     .blob-1 {
-      top: -10%; left: -10%; width: 50vw; height: 50vw;
-      background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, rgba(139,92,246,0.1) 100%);
+      top: -10%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.1) 100%);
       animation-duration: 15s;
     }
 
     .blob-2 {
-      bottom: -10%; right: -10%; width: 60vw; height: 60vw;
-      background: radial-gradient(circle, rgba(14,165,233,0.2) 0%, rgba(99,102,241,0.1) 100%);
+      bottom: -10%;
+      right: -10%;
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, rgba(99, 102, 241, 0.1) 100%);
       animation-duration: 18s;
     }
 
     .blob-3 {
-      top: 40%; left: 50%; transform: translate(-50%, -50%);
-      width: 45vw; height: 45vw;
-      background: radial-gradient(circle, rgba(250,232,255,0.4) 0%, rgba(224,231,255,0.2) 100%);
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 45vw;
+      height: 45vw;
+      background: radial-gradient(circle, rgba(250, 232, 255, 0.4) 0%, rgba(224, 231, 255, 0.2) 100%);
       animation-duration: 20s;
     }
 
+    /* Subtle grid overlay */
     body::before {
-      content: ''; position: fixed; inset: 0;
+      content: '';
+      position: fixed;
+      inset: 0;
       background-image: radial-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 0);
-      background-size: 24px 24px; z-index: -1; pointer-events: none;
+      background-size: 24px 24px;
+      z-index: -1;
+      pointer-events: none;
     }
 
     @keyframes pulse {
-      0%   { transform: scale(1) translate(0px, 0px); }
-      50%  { transform: scale(1.1) translate(20px, -20px); }
-      100% { transform: scale(0.9) translate(-10px, 20px); }
+      0% {
+        transform: scale(1) translate(0px, 0px);
+      }
+
+      50% {
+        transform: scale(1.1) translate(20px, -20px);
+      }
+
+      100% {
+        transform: scale(0.9) translate(-10px, 20px);
+      }
     }
 
+    /* ── CONTAINER ── */
     .container {
-      width: 100%; max-width: 540px;
-      display: flex; flex-direction: column; align-items: center; z-index: 1;
+      width: 100%;
+      max-width: 540px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
     }
 
-    /* ── PROFILE ── */
+    /* ── HEADER (PROFILE) ── */
     .profile {
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 32px;
       animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    .avatar-wrapper { position: relative; margin-bottom: 20px; }
+    .avatar-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+    }
 
     .avatar-ring {
-      width: 175px; height: 175px; border-radius: 50%;
+      width: 175px;
+      height: 175px;
+      border-radius: 50%;
+      padding: 0;
       background: transparent;
       box-shadow: 0 12px 35px -8px rgba(15, 23, 42, 0.16);
+      position: relative;
       transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .avatar-ring:hover { transform: scale(1.04) rotate(4deg); }
+    .avatar-ring:hover {
+      transform: scale(1.04) rotate(4deg);
+    }
 
     .avatar-inner {
-      width: 100%; height: 100%; border-radius: 50%;
-      overflow: hidden; background: linear-gradient(135deg, var(--primary-glow) 0%, rgba(139, 92, 246, 0.1) 100%);
-      display: flex; align-items: center; justify-content: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary-glow) 0%, rgba(139, 92, 246, 0.1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .avatar-inner img {
-      width: 100%; height: 100%; object-fit: cover;
-      object-position: center; display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
     .status-badge {
-      position: absolute; bottom: 6px; right: 6px;
-      background: #fff; padding: 6px 12px; border-radius: 20px;
-      font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: #fff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--text-secondary);
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
       border: 1px solid rgba(15, 23, 42, 0.05);
-      display: flex; align-items: center; gap: 6px; white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
     }
 
     .pulse-dot {
-      width: 8px; height: 8px; background-color: var(--success);
-      border-radius: 50%; display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--success);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 0 var(--success-glow);
       animation: pulse-dot-anim 1.8s infinite;
     }
 
     @keyframes pulse-dot-anim {
-      0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
-      70%  { transform: scale(1);    box-shadow: 0 0 0 6px rgba(16,185,129,0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
     }
 
-    .profile-name-container { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .profile-name-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
 
     .profile-name {
-      font-family: var(--font-display); font-size: 1.75rem; font-weight: 800;
-      color: var(--text-primary); letter-spacing: -0.5px;
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
     }
 
     .verified-badge {
-      color: #3b82f6; font-size: 1.15rem; display: flex; align-items: center;
+      color: #3b82f6;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
       animation: badge-shimmer 2.5s infinite ease-in-out;
     }
 
     @keyframes badge-shimmer {
-      0%, 100% { filter: drop-shadow(0 0 0px rgba(59,130,246,0)); }
-      50%       { filter: drop-shadow(0 0 4px rgba(59,130,246,0.6)); }
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.6));
+      }
     }
 
     .profile-tagline {
-      font-family: var(--font-display); font-size: 0.95rem; font-weight: 600;
-      color: var(--primary); margin-bottom: 8px; letter-spacing: -0.1px;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+      letter-spacing: -0.1px;
     }
 
     .profile-meta {
-      font-size: 0.82rem; color: var(--text-secondary);
-      display: flex; align-items: center; gap: 12px; margin-top: 4px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
     }
 
-    .meta-item { display: flex; align-items: center; gap: 4px; }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
 
-    /* ── SECTIONS ── */
-    .sections { width: 100%; display: flex; flex-direction: column; gap: 36px; }
+    /* Brand hover modifications for glass-card */
+    .glass-card[href*="linkedin.com"]:hover {
+      border-color: rgba(0, 119, 181, 0.4);
+      background: rgba(255, 255, 255, 0.9);
+    }
 
-    .section { width: 100%; animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
-    .section:nth-child(1) { animation-delay: 0.15s; }
-    .section:nth-child(2) { animation-delay: 0.25s; }
-    .section:nth-child(3) { animation-delay: 0.35s; }
-    .section:nth-child(4) { animation-delay: 0.45s; }
-    .section:nth-child(5) { animation-delay: 0.55s; }
+    .glass-card[href*="linkedin.com"]:hover .card-icon {
+      color: #0077b5;
+      background: rgba(0, 119, 181, 0.1);
+    }
+
+    .glass-card[href*="github.com"]:hover {
+      border-color: rgba(36, 41, 46, 0.4);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .glass-card[href*="github.com"]:hover .card-icon {
+      color: #24292e;
+      background: rgba(36, 41, 46, 0.1);
+    }
+
+    .glass-card[href*="portfolio-harshavardhan1234"]:hover {
+      border-color: rgba(244, 63, 94, 0.4);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .glass-card[href*="portfolio-harshavardhan1234"]:hover .card-icon {
+      color: #f43f5e;
+      background: rgba(244, 63, 94, 0.1);
+    }
+
+    .glass-card[href^="mailto:"]:hover {
+      border-color: rgba(234, 67, 53, 0.4);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .glass-card[href^="mailto:"]:hover .card-icon {
+      color: #ea4335;
+      background: rgba(234, 67, 53, 0.1);
+    }
+
+    /* ── SECTIONS GENERAL ── */
+    .sections {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .section {
+      width: 100%;
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .section:nth-child(1) {
+      animation-delay: 0.15s;
+    }
+
+    .section:nth-child(2) {
+      animation-delay: 0.25s;
+    }
+
+    .section:nth-child(3) {
+      animation-delay: 0.35s;
+    }
+
+    .section:nth-child(4) {
+      animation-delay: 0.45s;
+    }
+
+    .section:nth-child(5) {
+      animation-delay: 0.55s;
+    }
+
+    .section:nth-child(6) {
+      animation-delay: 0.65s;
+    }
 
     .section-header {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 16px; padding: 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 0 4px;
     }
 
     .section-icon {
-      font-size: 0.85rem; color: var(--primary);
-      display: flex; align-items: center; justify-content: center;
-      width: 26px; height: 26px;
-      background: var(--primary-glow); border-radius: 50%;
+      font-size: 0.85rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: var(--primary-glow);
+      border-radius: 50%;
     }
 
     .section-title {
-      font-family: var(--font-display); font-size: 0.8rem; font-weight: 800;
-      letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-secondary);
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
     }
 
     .section-line {
-      flex: 1; height: 1px;
-      background: linear-gradient(90deg, rgba(15,23,42,0.08) 0%, rgba(15,23,42,0) 100%);
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0) 100%);
     }
 
-    /* ── GLASS CARDS ── */
-    .link-list { display: flex; flex-direction: column; gap: 14px; }
+    /* ── GLASS CARDS (LINK LIST) ── */
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
     .glass-card {
-      display: flex; align-items: center; gap: 16px;
-      padding: 16px 20px; border-radius: 16px;
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      color: var(--text-primary); text-decoration: none;
-      box-shadow: var(--shadow-sm); backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
     }
 
     .glass-card::before {
-      content: ''; position: absolute; top: 0; left: 0;
-      width: 4px; height: 100%;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
       background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
-      opacity: 0; transition: opacity 0.3s ease;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     .glass-card:hover {
-      background: var(--card-hover-bg); border-color: var(--card-hover-border);
-      transform: translateY(-3px); box-shadow: var(--shadow-md);
+      background: var(--card-hover-bg);
+      border-color: var(--card-hover-border);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
     }
 
-    .glass-card:hover::before { opacity: 1; }
+    .glass-card:hover::before {
+      opacity: 1;
+    }
 
     .card-icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: #f1f5f9; border: 1px solid rgba(15,23,42,0.04);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.15rem; color: var(--primary); flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      border: 1px solid rgba(15, 23, 42, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      color: var(--primary);
+      flex-shrink: 0;
       transition: all 0.3s ease;
     }
 
     .glass-card:hover .card-icon {
-      background: var(--primary-glow); color: var(--primary); transform: scale(1.05);
+      background: var(--primary-glow);
+      color: var(--primary);
+      transform: scale(1.05);
     }
 
-    /* Brand icon colours on hover */
-    .glass-card.brand-linkedin:hover .card-icon { color: #0077b5; background: rgba(0,119,181,0.1); }
-    .glass-card.brand-github:hover   .card-icon { color: #24292e; background: rgba(36,41,46,0.08); }
-    .glass-card.brand-portfolio:hover .card-icon { color: #f43f5e; background: rgba(244,63,94,0.1); }
-    .glass-card.brand-resume:hover   .card-icon { color: #e11d48; background: rgba(225,29,72,0.1); }
-
-
-    .card-content { flex: 1; }
+    .card-content {
+      flex: 1;
+    }
 
     .card-title {
-      font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
-      color: var(--text-primary); line-height: 1.3;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
     }
 
-    .card-sub { font-size: 0.78rem; color: var(--text-secondary); margin-top: 3px; }
+    .card-sub {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 3px;
+    }
 
     .card-arrow {
-      font-size: 0.8rem; color: var(--text-muted); transition: all 0.3s ease;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      transition: all 0.3s ease;
     }
 
-    .glass-card:hover .card-arrow { color: var(--primary); transform: translateX(4px); }
+    .glass-card:hover .card-arrow {
+      color: var(--primary);
+      transform: translateX(4px);
+    }
 
-    /* ── PROJECTS ── */
-    .projects-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    /* ── FEATURED PROJECTS (GRID CARDS) ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
 
     .project-card {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 18px; padding: 20px; box-shadow: var(--shadow-sm);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
       backdrop-filter: blur(16px);
-      display: flex; flex-direction: column; justify-content: space-between;
-      gap: 14px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     .project-card:hover {
-      background: var(--card-hover-bg); border-color: var(--card-hover-border);
-      transform: translateY(-4px); box-shadow: var(--shadow-md);
+      background: var(--card-hover-bg);
+      border-color: var(--card-hover-border);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
 
     .project-header {
-      display: flex; align-items: start;
-      justify-content: space-between; gap: 12px;
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     .project-icon-box {
-      width: 42px; height: 42px; border-radius: 12px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
       background: var(--primary-glow);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--primary);
     }
 
     .project-tag {
-      font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
-      padding: 4px 10px; border-radius: 20px; background: #f1f5f9;
-      color: var(--text-secondary); border: 1px solid rgba(15,23,42,0.03);
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #f1f5f9;
+      color: var(--text-secondary);
+      border: 1px solid rgba(15, 23, 42, 0.03);
+    }
+
+    .project-info {
+      margin-top: 4px;
     }
 
     .project-title {
-      font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
-      color: var(--text-primary); margin-bottom: 6px;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
     }
 
-    .project-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.45; }
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
 
-    .project-tech-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .project-tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
 
     .tech-tag {
-      font-size: 0.68rem; font-weight: 500; color: var(--text-secondary);
-      background: rgba(15,23,42,0.03); padding: 3px 8px; border-radius: 6px;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: rgba(15, 23, 42, 0.03);
+      padding: 3px 8px;
+      border-radius: 6px;
     }
 
-    .project-footer { display: flex; align-items: center; justify-content: flex-end; margin-top: 6px; }
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 6px;
+    }
 
     .project-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-family: var(--font-display); font-size: 0.78rem; font-weight: 700;
-      color: var(--primary); text-decoration: none;
-      padding: 6px 12px; border-radius: 8px; background: var(--primary-glow);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: var(--primary-glow);
       transition: all 0.25s ease;
     }
 
-    .project-card:hover .project-cta { background: var(--primary); color: #fff; }
+    .project-card:hover .project-cta {
+      background: var(--primary);
+      color: #fff;
+    }
 
-    /* ── CONTACT ── */
+    /* ── CONTACT CARD & TOAST ── */
     .contact-card {
       background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
-      border: 1px solid var(--card-border); border-radius: 20px;
-      padding: 28px 24px; text-align: center; box-shadow: var(--shadow-md);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
       backdrop-filter: blur(16px);
-      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
       position: relative;
     }
 
     .contact-card::after {
-      content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 1px;
-      background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(139,92,246,0) 100%);
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0) 100%);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
 
     .contact-card h3 {
-      font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--text-primary);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-primary);
     }
 
     .contact-card p {
-      font-size: 0.85rem; color: var(--text-secondary); max-width: 320px; line-height: 1.5;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      max-width: 320px;
+      line-height: 1.5;
     }
 
     .contact-action-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
       background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      border: none; padding: 12px 24px; border-radius: 12px; cursor: pointer;
-      box-shadow: 0 4px 15px -3px rgba(99,102,241,0.4);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px -3px rgba(99, 102, 241, 0.4);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     .contact-action-btn:hover {
-      transform: translateY(-2px); box-shadow: 0 8px 20px -3px rgba(99,102,241,0.6);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -3px rgba(99, 102, 241, 0.6);
       filter: saturate(1.1);
     }
 
+    .contact-action-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Clipboard Copy Button */
     .copy-email-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
-      color: var(--text-secondary); background: #f1f5f9;
-      border: 1px solid rgba(15,23,42,0.05); padding: 8px 16px; border-radius: 10px;
-      cursor: pointer; transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: #f1f5f9;
+      border: 1px solid rgba(15, 23, 42, 0.05);
+      padding: 8px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.25s ease;
     }
 
     .copy-email-btn:hover {
-      background: var(--primary-glow); color: var(--primary); border-color: var(--card-hover-border);
+      background: var(--primary-glow);
+      color: var(--primary);
+      border-color: var(--card-hover-border);
     }
 
+    /* Dynamic Toast Notification */
     .toast {
-      position: fixed; bottom: 24px; left: 50%;
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background: #0f172a; color: #fff; padding: 12px 24px; border-radius: 30px;
-      font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
-      box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 8px;
-      z-index: 1000; opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: #0f172a;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-    .toast i { color: var(--success); }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .toast i {
+      color: var(--success);
+    }
 
     /* ── FOOTER ── */
     .footer {
-      margin-top: 48px; font-family: var(--font-display); font-size: 0.72rem;
-      color: var(--text-muted); text-align: center; letter-spacing: 0.5px;
+      margin-top: 48px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: center;
+      letter-spacing: 0.5px;
     }
 
-    .footer a { color: var(--text-secondary); text-decoration: none; font-weight: 600; transition: color 0.2s ease; }
-    .footer a:hover { color: var(--primary); }
+    .footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
 
+    .footer a:hover {
+      color: var(--primary);
+    }
+
+    /* ── ANIMATIONS ── */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
+    /* Mobile Responsive Optimizations */
     @media (max-width: 480px) {
-      body { padding: 24px 12px 60px; }
-      .profile-name { font-size: 1.5rem; }
-      .avatar-ring { width: 115px; height: 115px; }
+      body {
+        padding: 24px 12px 60px;
+      }
+
+      .profile-name {
+        font-size: 1.5rem;
+      }
+
+      .avatar-ring {
+        width: 115px;
+        height: 115px;
+      }
+
+      .contact-card {
+        padding: 24px 16px;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- Dynamic Glass Background Blobs -->
   <div class="bg-blobs">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
@@ -434,268 +833,309 @@
 
   <div class="container">
 
-    <!-- ── PROFILE ── -->
-    <header class="profile">
+    <!-- ══ PROFILE SECTION ══ -->
+    <header class="profile" id="profile-section">
       <div class="avatar-wrapper">
         <div class="avatar-ring">
           <div class="avatar-inner">
-            <!-- Replace src with your actual photo -->
             <img src="profile.jpg" alt="Harsha Vardhan" />
           </div>
         </div>
-        <div class="status-badge">
-          <span class="pulse-dot"></span> Open to Work
-        </div>
+
       </div>
 
       <div class="profile-name-container">
         <h1 class="profile-name">Harsha Vardhan</h1>
-        <span class="verified-badge"><i class="fa-solid fa-circle-check"></i></span>
+        <span class="verified-badge" title="Verified Professional"><i class="fas fa-circle-check"></i></span>
       </div>
-      <p class="profile-tagline">Software Developer &amp; AI Engineer</p>
+
       <div class="profile-meta">
-        <span class="meta-item"><i class="fa-solid fa-location-dot"></i> Hyderabad, IN</span>
-        <span class="meta-item"><i class="fa-solid fa-graduation-cap"></i> VJIT · B.Tech CSE (AI&amp;ML)</span>
+        <span class="meta-item"><i class="fas fa-location-dot"></i> Hyderabad, India</span>
+        <span class="meta-item"><i class="fas fa-graduation-cap"></i> B.Tech CSE (AI&amp;ML) • VJIT</span>
       </div>
     </header>
 
-    <!-- ── SECTIONS ── -->
+    <!-- ══ SECTIONS MATRIX ══ -->
     <div class="sections">
 
-      <!-- ── CONNECT / SOCIAL LINKS ── -->
-      <section class="section">
+      <!-- ════ SECTION 0: SOCIAL LINKS ════ -->
+      <section class="section" id="socials-section">
         <div class="section-header">
-          <span class="section-icon"><i class="fa-solid fa-link"></i></span>
-          <h2 class="section-title">Connect</h2>
+          <span class="section-icon"><i class="fas fa-share-nodes"></i></span>
+          <h2 class="section-title">Connect with Me</h2>
           <div class="section-line"></div>
         </div>
-        <div class="link-list">
 
-          <a href="https://linkedin.com/in/harshavardhan" target="_blank" rel="noopener" class="glass-card brand-linkedin">
-            <div class="card-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+        <div class="link-list">
+          <a class="glass-card" href="https://www.linkedin.com/in/harsha-vardhan-ullendula/" target="_blank"
+            rel="noopener">
+            <div class="card-icon"><i class="fab fa-linkedin-in"></i></div>
             <div class="card-content">
               <div class="card-title">LinkedIn</div>
-              <div class="card-sub">linkedin.com/in/harshavardhan</div>
+              <div class="card-sub">Professional network, connections & updates</div>
             </div>
-            <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
 
-          <a href="https://github.com/harshavardhan" target="_blank" rel="noopener" class="glass-card brand-github">
-            <div class="card-icon"><i class="fa-brands fa-github"></i></div>
+          <a class="glass-card" href="https://github.com/Harsha140705" target="_blank" rel="noopener">
+            <div class="card-icon"><i class="fab fa-github"></i></div>
             <div class="card-content">
               <div class="card-title">GitHub</div>
-              <div class="card-sub">github.com/harshavardhan</div>
+              <div class="card-sub">Open-source projects, repositories & code</div>
             </div>
-            <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
 
-          <a href="#" target="_blank" rel="noopener" class="glass-card brand-portfolio">
-            <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+          <a class="glass-card" href="https://portfolio-harshavardhan1234.vercel.app/#contact" target="_blank"
+            rel="noopener">
+            <div class="card-icon"><i class="fas fa-globe"></i></div>
             <div class="card-content">
               <div class="card-title">Portfolio</div>
-              <div class="card-sub">View my work &amp; projects</div>
+              <div class="card-sub">Personal website, showcase & dynamic contact</div>
             </div>
-            <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
 
-          <a href="#" target="_blank" rel="noopener" class="glass-card brand-resume">
-            <div class="card-icon"><i class="fa-solid fa-file-lines"></i></div>
+          <a class="glass-card" href="mailto:ullendulaharshavardhan@gmail.com" rel="noopener">
+            <div class="card-icon"><i class="fas fa-envelope"></i></div>
             <div class="card-content">
-              <div class="card-title">Resume</div>
-              <div class="card-sub">Download my latest CV</div>
+              <div class="card-title">Email</div>
+              <div class="card-sub">Direct inquiry, collaboration & messages</div>
             </div>
-            <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
-
         </div>
       </section>
 
-      <!-- ── PROJECTS ── -->
-      <section class="section">
+      <!-- ════ SECTION 1: FEATURED PROJECTS ════ -->
+      <section class="section" id="projects-section">
         <div class="section-header">
-          <span class="section-icon"><i class="fa-solid fa-code"></i></span>
+          <span class="section-icon"><i class="fas fa-bolt"></i></span>
           <h2 class="section-title">Featured Projects</h2>
           <div class="section-line"></div>
         </div>
-        <div class="projects-grid">
 
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon-box"><i class="fa-solid fa-ticket"></i></div>
-              <span class="project-tag">SaaS</span>
-            </div>
-            <div class="project-info">
-              <div class="project-title">SaaS Support Ticket System</div>
-              <p class="project-desc">Multi-tenant support platform with role-based access, real-time updates, and analytics dashboard.</p>
-              <div class="project-tech-stack">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">FastAPI</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">Firebase</span>
-              </div>
-            </div>
-            <div class="project-footer">
-              <a href="#" class="project-cta">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon-box"><i class="fa-solid fa-scale-balanced"></i></div>
-              <span class="project-tag">Civic Tech</span>
-            </div>
-            <div class="project-info">
-              <div class="project-title">GrievanceHub</div>
-              <p class="project-desc">Citizen grievance portal with AI-assisted categorisation, status tracking, and official response flow.</p>
-              <div class="project-tech-stack">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MySQL</span>
-              </div>
-            </div>
-            <div class="project-footer">
-              <a href="#" class="project-cta">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon-box"><i class="fa-solid fa-camera-retro"></i></div>
-              <span class="project-tag">AI / ML</span>
-            </div>
-            <div class="project-info">
-              <div class="project-title">Face Clustering Smart Album</div>
-              <p class="project-desc">Automatic photo organiser using DeepFace &amp; OpenCV to cluster images by identity.</p>
-              <div class="project-tech-stack">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">DeepFace</span>
-                <span class="tech-tag">OpenCV</span>
-                <span class="tech-tag">Flask</span>
-              </div>
-            </div>
-            <div class="project-footer">
-              <a href="#" class="project-cta">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ── CERTIFICATIONS ── -->
-      <section class="section">
-        <div class="section-header">
-          <span class="section-icon"><i class="fa-solid fa-certificate"></i></span>
-          <h2 class="section-title">Certifications</h2>
-          <div class="section-line"></div>
-        </div>
         <div class="link-list">
 
-          <a href="#" target="_blank" rel="noopener" class="glass-card">
-            <div class="card-icon"><i class="fa-brands fa-aws"></i></div>
+          <!-- Project 1 -->
+          <a class="glass-card" href="https://github.com/Harsha140705/saas-support" target="_blank" rel="noopener">
+            <div class="card-icon"><i class="fas fa-ticket"></i></div>
             <div class="card-content">
-              <div class="card-title">AWS Cloud Practitioner</div>
-              <div class="card-sub">Amazon Web Services · 2024</div>
+              <div class="card-title">SaaS Support Ticket System</div>
             </div>
-            <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
 
-          <a href="#" target="_blank" rel="noopener" class="glass-card">
-            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+          <!-- Project 2 -->
+          <a class="glass-card" href="https://github.com/Harsha140705/grievancehub" target="_blank" rel="noopener">
+            <div class="card-icon"><i class="fas fa-brain"></i></div>
             <div class="card-content">
-              <div class="card-title">Machine Learning Specialization</div>
-              <div class="card-sub">DeepLearning.AI · Coursera · 2023</div>
+              <div class="card-title">GrievanceHub</div>
             </div>
-            <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
 
-          <a href="#" target="_blank" rel="noopener" class="glass-card">
-            <div class="card-icon"><i class="fa-brands fa-google"></i></div>
+          <!-- Commented-out projects per user request:
+          
+          Project 3: Face Clustering Smart Album -->
+          <a class="glass-card" href="https://github.com/Harsha140705/smart-album" target="_blank" rel="noopener">
+            <div class="card-icon"><i class="fas fa-images"></i></div>
             <div class="card-content">
-              <div class="card-title">Google Data Analytics</div>
-              <div class="card-sub">Google · Coursera · 2023</div>
+              <div class="card-title">Face Clustering Smart Album</div>
             </div>
-            <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
+
+          <!-- Project 4: EduPapers
+          <a class="glass-card" href="https://github.com/Harsha140705/edupapers" target="_blank" rel="noopener">
+            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="card-content">
+              <div class="card-title">EduPapers</div>
+            </div>
+            <i class="fas fa-chevron-right card-arrow"></i>
+          </a> -->
+
 
         </div>
       </section>
 
-      <!-- ── CODING PROFILES ── -->
-      <section class="section">
+      <!-- ════ SECTION 2: CODING PROFILES ════ -->
+      <section class="section" id="coding-section">
         <div class="section-header">
-          <span class="section-icon"><i class="fa-solid fa-terminal"></i></span>
+          <span class="section-icon"><i class="fas fa-trophy"></i></span>
           <h2 class="section-title">Coding Profiles</h2>
           <div class="section-line"></div>
         </div>
+
         <div class="link-list">
 
-          <a href="https://leetcode.com/harshavardhan" target="_blank" rel="noopener" class="glass-card">
-            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+          <!-- Profile 1 -->
+          <a class="glass-card" href="https://leetcode.com/u/harshaullendula143/" target="_blank" rel="noopener">
+            <div class="card-icon"><i class="fas fa-code"></i></div>
             <div class="card-content">
               <div class="card-title">LeetCode</div>
               <div class="card-sub">Solved 100+ problems and 1700+ contest rating</div>
             </div>
-            <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
 
-          <a href="https://codechef.com/users/harshavardhan" target="_blank" rel="noopener" class="glass-card">
-            <div class="card-icon"><i class="fa-solid fa-utensils"></i></div>
+          <!-- Profile 2 -->
+          <a class="glass-card" href="https://www.codechef.com/users/horse_91" target="_blank" rel="noopener">
+            <div class="card-icon"><i class="fas fa-utensils"></i></div>
             <div class="card-content">
               <div class="card-title">CodeChef</div>
               <div class="card-sub">1300+ contest rating</div>
             </div>
-            <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
 
-          <a href="https://hackerrank.com/harshavardhan" target="_blank" rel="noopener" class="glass-card">
-            <div class="card-icon"><i class="fa-brands fa-hackerrank"></i></div>
+          <!-- Profile 3 -->
+          <a class="glass-card" href="https://www.hackerrank.com/harshaullendula1" target="_blank" rel="noopener">
+            <div class="card-icon"><i class="fab fa-hackerrank"></i></div>
             <div class="card-content">
               <div class="card-title">HackerRank</div>
-              <div class="card-sub">hackerrank.com/harshavardhan</div>
+              <div class="card-sub">Practice problem solving across specific language pathways</div>
             </div>
-            <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
 
         </div>
       </section>
 
-      <!-- ── CONTACT ── -->
-      <section class="section">
+      <!-- ════ SECTION 3: WORK EXPERIENCE ════ -->
+      <section class="section" id="experience-section">
         <div class="section-header">
-          <span class="section-icon"><i class="fa-solid fa-paper-plane"></i></span>
-          <h2 class="section-title">Get In Touch</h2>
+          <span class="section-icon"><i class="fas fa-briefcase"></i></span>
+          <h2 class="section-title">Work Experience</h2>
           <div class="section-line"></div>
         </div>
-        <div class="contact-card">
-          <h3>Let's build something great</h3>
-          <p>Open to full-time roles, freelance projects, and collaboration on interesting AI/ML or full-stack ideas.</p>
-          <a href="mailto:harsha@example.com" class="contact-action-btn">
-            <i class="fa-solid fa-envelope"></i> Send a Message
+
+        <div class="link-list">
+          <!-- MSL Experience Card -->
+          <a class="glass-card"
+            href="https://drive.google.com/file/d/1c8cr3HdeYurKsJ1xawWPrNexcKh-kBad/edit?usp=drive_link" target="_blank"
+            rel="noopener">
+            <div class="card-icon"><i class="fas fa-file-pdf" style="color: #ea4335;"></i></div>
+            <div class="card-content">
+              <div class="card-title">Web Developer &amp; DevOps Intern</div>
+              <div class="card-sub">Microsys Logic (MSL) • Click to View Experience PDF</div>
+            </div>
+            <i class="fas fa-chevron-right card-arrow"></i>
           </a>
+        </div>
+      </section>
+
+      <!-- ════ SECTION 4: CERTIFICATIONS ════ -->
+      <section class="section" id="certs-section">
+        <div class="section-header">
+          <span class="section-icon"><i class="fas fa-award"></i></span>
+          <h2 class="section-title">Verified Certifications</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="link-list">
+
+          <!-- Cert 1 -->
+          <a class="glass-card"
+            href="https://drive.google.com/file/d/1aK90Hj6_R_QLpBmifLvetiuwCdyV5P-H/view?usp=sharing" target="_blank"
+            rel="noopener">
+            <div class="card-icon"><i class="fab fa-python"></i></div>
+            <div class="card-content">
+              <div class="card-title">Python Programming Excellence</div>
+              <div class="card-sub">CodeTantra • Verified Academic Certificate</div>
+            </div>
+            <i class="fas fa-chevron-right card-arrow"></i>
+          </a>
+
+          <!-- Cert 2 -->
+
+
+          <!-- Cert 3 -->
+          <a class="glass-card"
+            href="https://drive.google.com/file/d/1qLSz1vBDiqVURsZWv19S2zFfwoHRj4m8/view?usp=drive_link" target="_blank"
+            rel="noopener">
+            <div class="card-icon"><i class="fab fa-java"></i></div>
+            <div class="card-content">
+              <div class="card-title">Object Oriented Programming in Java</div>
+              <div class="card-sub">CodeTantra • Core Software Architecture</div>
+            </div>
+            <i class="fas fa-chevron-right card-arrow"></i>
+          </a>
+
+          <!-- Cert 4 -->
+          <a class="glass-card"
+            href="https://drive.google.com/file/d/18NRBdlFvx_Ccu-Ps4gU-idxFB0DgMtSX/view?usp=drive_link" target="_blank"
+            rel="noopener">
+            <div class="card-icon"><i class="fas fa-database"></i></div>
+            <div class="card-content">
+              <div class="card-title">Database Management Systems (DBMS)</div>
+              <div class="card-sub">CodeTantra • Advanced Relational Models</div>
+            </div>
+            <i class="fas fa-chevron-right card-arrow"></i>
+          </a>
+
+          <!-- Cert 5 -->
+          <a class="glass-card"
+            href="https://drive.google.com/file/d/15atKBhR6kVMTGWLtjh6Iiws1IEAO9kdG/view?usp=drive_link" target="_blank"
+            rel="noopener">
+            <div class="card-icon"><i class="fas fa-robot"></i></div>
+            <div class="card-content">
+              <div class="card-title">AIML Virtual Internship</div>
+              <div class="card-sub">AWS / EduSkills • Artificial Intelligence Program</div>
+            </div>
+            <i class="fas fa-chevron-right card-arrow"></i>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ════ SECTION 5: CONTACT CTA ════ -->
+      <section class="section" id="contact-section">
+        <div class="contact-card">
+          <h3>Get In Touch</h3>
+          <p>Have an interesting project, internship, or full-stack opportunity? Let's connect and build together.</p>
+
+          <button class="contact-action-btn" onclick="window.open('mailto:ullendulaharshavardhan@gmail.com')">
+            <i class="fas fa-paper-plane"></i> Send an Email
+          </button>
+
           <button class="copy-email-btn" onclick="copyEmail()">
-            <i class="fa-regular fa-copy"></i> Copy Email
+            <i class="far fa-copy"></i> Copy Email address
           </button>
         </div>
       </section>
 
     </div><!-- /sections -->
 
+    <!-- Dynamic Toast Popup -->
+    <div id="toast-notify" class="toast">
+      <i class="fas fa-circle-check"></i> Email copied to clipboard!
+    </div>
+
+    <!-- Footer block -->
     <footer class="footer">
-      <p>Crafted with <span style="color:#f43f5e">♥</span> by <a href="#">Harsha Vardhan</a> · 2025</p>
+      <span>Designed by <a href="https://portfolio-harshavardhan1234.vercel.app/" target="_blank">Harsha Vardhan</a> • ©
+        2026</span>
     </footer>
-  </div>
 
-  <div class="toast" id="toast">
-    <i class="fa-solid fa-circle-check"></i> Email copied to clipboard!
-  </div>
+  </div><!-- /container -->
 
+  <!-- ── JAVASCRIPT LOGIC ── -->
   <script>
     function copyEmail() {
-      navigator.clipboard.writeText('harsha@example.com');
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
+      const email = 'ullendulaharshavardhan@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const toast = document.getElementById('toast-notify');
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
     }
   </script>
+
 </body>
+
 </html>
